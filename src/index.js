@@ -1,12 +1,21 @@
 import React from 'react';
+import { Provider } from 'react-redux';
+import store from '../src/app/store/configureStore';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <BrowserRouter>
+        {/* <ScrollToTop />
+        <ReduxToastr position='bottom-right' /> */}
+        <App />
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
