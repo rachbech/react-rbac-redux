@@ -12,10 +12,7 @@ class Login extends Component {
             <div>
                 <h1>login page</h1>
                 <button onClick={this.loginUser}>
-                    Login
-                </button>
-                <button onClick={this.affich}>
-                    Affiche auth
+                    LogIn
                 </button>
             </div>
         );

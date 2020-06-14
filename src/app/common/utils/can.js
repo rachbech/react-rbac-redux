@@ -9,22 +9,18 @@ export const Authorization = (WrappedComponent, allowedRoles) => {
     class WithAuthorization extends React.Component {
         constructor(props) {
             super(props)
-            console.log('this.props.role', this.props.auth.currentUser.role);
-            // In this case the user is hardcoded, but it could be loaded from anywhere.
-            // Redux, MobX, RxJS, Backbone...
+
+            // In this case the user is loaded from Redux
+            // But it could be loaded from anywhere.
+            // MobX, RxJS, Backbone...
+
             this.state = {
-                user: {
-                    name: 'rachid',
-                    role: this.props.auth.currentUser.role,
-                    email: 'rachid@gmail.com'
-                }
+                user: { ...this.props.auth.currentUser }
             }
-            console.log('this.state.role', this.state.role);
-
         }
-        render() {
-            const { role } = this.state.user.role;
 
+        render() {
+            const { role } = this.state.user;
             if (allowedRoles.includes(role)) {
                 return <WrappedComponent {...this.props} />
             } else {

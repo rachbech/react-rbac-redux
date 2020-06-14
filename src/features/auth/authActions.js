@@ -33,7 +33,9 @@ export const login = (creds) => (dispatch, getState) => {
 };
 
 export const logout = () => {
-    return {
-        type: SIGN_OUT_USER,
+    return (dispatch) => {
+        dispatch({
+            type: SIGN_OUT_USER,
+        });
     };
 };
